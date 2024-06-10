@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Index.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar-nav">
+                <div class="navbar-nav-item">
+                    <a href="Index.html" class="sitename"><strong>GrandRead</strong></a>
+                    <a href="Index.html" class="nav-link">Главная</a>
+                    <a href="Catalog.html" class="nav-link">Каталог</a>
+                    <a href="Reviews.html" class="nav-link">Отзывы</a>
+                    <a href="Contacts.html" class="nav-link">Контакты</a>
+                    <a href="#4" class="login-link">Войти</a>
+              </div>
+          </div>
+        </nav>
+    </header>
+
+    <div class="reviews-container">
+        <h1 class="title">Отзывы пользователей</h1>
+        <div class="reviews-contain">
+            <div class="reviews">
+                <div class="reviews-avatar">
+                    <img src="https://e7.pngegg.com/pngimages/563/653/png-clipart-student-education-licentiate-faculdade-cathedral-graduate-university-student-education-licentiate.png">
+                </div>
+                <div class="reviews-text">
+                    <p class="reviews-name">Денис</p>
+                    <p class="reviews-role"><span style="color:#FFD700">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+                    <p>
+                        Здравствуйте! Хочу сказать большое спасибо за профессионализм, внимательность, отзывчивость. При заказе предложены были варианты. Выслали фото уже готового букета. Мне он очень понравился. И доставку.
+                    </p>
+                </div>
+            </div>
+            <div class="reviews">
+                <div class="reviews-avatar">
+                    <img src="https://e7.pngegg.com/pngimages/563/653/png-clipart-student-education-licentiate-faculdade-cathedral-graduate-university-student-education-licentiate.png">
+                </div>
+                <div class="reviews-text">
+                    <p class="reviews-name">Александр</p>
+                    <p class="reviews-role"><span style="color:#FFD700">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+                    <p>
+                        Спасибо за цветы,очень понравился букет.
+                    </p>
+                </div>
+            </div>
+            <div class="reviews">
+                <div class="reviews-avatar">
+                    <img src="https://e7.pngegg.com/pngimages/563/653/png-clipart-student-education-licentiate-faculdade-cathedral-graduate-university-student-education-licentiate.png">
+                </div>
+                <div class="reviews-text">
+                    <p class="reviews-name">Мария</p>
+                    <p class="reviews-role"><span style="color:#FFD700">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
+                    <p>
+                        Спасибо большое, за доставку в срок. Заказывала букет из другого города, в наличии не оказалось нужного, девочки предложили свой вариант и не прогадала!!! буду пользоваться вашим сайтом и дальше.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=price-container id="price-container">
+        <div class="price-form">
+            <h2 class="price-form-title">Введите данные для оплаты</h2>
+            <form action="indexphp.php" method="post">
+                <div class="row">
+                    <div class="seldiv">
+                    </div>
+                    <div class="row-input">
+                        <input type="text" class="price-form-input" name="fio" placeholder="Введите свое полное имя" required>
+                    </div>
+                    <div class="row-input">
+                        <input type="text" class="price-form-input" name="email" placeholder="Укажите адрес электронной почты" required>
+                    </div>
+                    <div class="row-input">
+                        <input type="number" class="price-form-input" name="number" placeholder="Оценка" required="">
+                    </div>
+                    <div class="row-input">
+                        <input type="text" class="price-form-input" name="reviews" placeholder="Отзыв" required="">
+                    </div>
+                </div>
+                <div class="price-form-button">
+            <button class="price-form-button-text" type="submit" value="Send">Отправить заявку</button>
+                </div>
+            </form>
+            <div class="price-form-text">
+                <p>Заказать на сайте или по телефону.</p>
+            </div>
+            <div class="price-form-text">
+                <p>
+                    Нажимая кнопку, принимаю условия <a href="Privacy.html">политики конфиденциальности</a>
+                </p>
+            </div>
+    </div>
+</div>
+</div>
+
+    <footer class="border-top" id="border-top">
+        <div class="border-contain">
+            <div class="footer-container">
+                <div class="footer-text">
+                    <p class="footer-name">&copy;GrandRead</p>
+                    <p><a href="Privacy.html">Политика конфиденциальности</a></p>
+                    </div>
+            </div>
+            <div class="container">
+                <div class="footer-text">
+                    <p class="footer-name">Встретимся в соцсетях</p>
+                    <div class="footer-avatar">
+                        <a href="https://web.telegram.org"><img src="Picture/icon9.png"></a>
+                        <a href="https://vk.com"><img src="Picture/icon10.png"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="footer-text">
+                    <p class="footer-name">Контакты</p>
+                    <p>88005553535 <br />Г. Пенза, ул. Московская, д. 191</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="Index.js"></script>
+</body>
+</html>
