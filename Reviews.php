@@ -1,88 +1,108 @@
+<?php require_once("config.php");?>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Отзывы</title>
 </head>
 <body>
+<?php
+  /* Принимаем данные из формы */
+  $reviewsname = $_POST["reviewsname"];
+  $reviewsemail = $_POST["reviewsemail"];
+  $reviewsnumber = $_POST["reviewsnumber"];
+  $reviewsdescription = $_POST["reviewsdescription"];
+  $result = mysqli_query($dbc,"INSERT into reviews(reviewsname,reviewsemail,reviewsnumber,reviewsdescription) values('$reviewsname', '$reviewsemail', '$reviewsnumber', '$reviewsdescription')");// Добавляем комментарий в таблицу
+?>
+
     <header>
         <nav>
+        <div class="content">
             <div class="navbar-nav">
                 <div class="navbar-nav-item">
-                    <a href="Index.html" class="sitename"><strong>GrandRead</strong></a>
-                    <a href="Index.html" class="nav-link">Главная</a>
-                    <a href="Catalog.html" class="nav-link">Каталог</a>
-                    <a href="Reviews.html" class="nav-link">Отзывы</a>
-                    <a href="Contacts.html" class="nav-link">Контакты</a>
-                    <a href="#4" class="login-link">Войти</a>
+                    <a href="Index.php" class="sitename"><strong>GrandRead</strong></a>
+                    <a href="Index.php" class="nav-link">Главная</a>
+                    <a href="Catalog.php" class="nav-link">Каталог</a>
+                    <a href="Reviews.php" class="nav-link">Отзывы</a>
+                    <a href="Contacts.php" class="nav-link">Контакты</a>
+                    <?php
+                    if ($_SESSION['login_sess']!='') { ?> 
+                    <a href="account.php" class="login-link">Личный кабинет</a>
+                    <?php } else { ?>
+                      <a href="account.php" class="login-link">Войти</a>
+                    <?php } ?>
               </div>
+          </div>
           </div>
         </nav>
     </header>
 
+    <h1 class="title">Отзывы пользователей</h1>
     <div class="reviews-container">
-        <h1 class="title">Отзывы пользователей</h1>
+    <div class="content">
         <div class="reviews-contain">
             <div class="reviews">
                 <div class="reviews-avatar">
-                    <img src="https://e7.pngegg.com/pngimages/563/653/png-clipart-student-education-licentiate-faculdade-cathedral-graduate-university-student-education-licentiate.png">
+                    <img src="Picture/icon13.png">
                 </div>
                 <div class="reviews-text">
                     <p class="reviews-name">Денис</p>
                     <p class="reviews-role"><span style="color:#FFD700">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
                     <p>
-                        Здравствуйте! Хочу сказать большое спасибо за профессионализм, внимательность, отзывчивость. При заказе предложены были варианты. Выслали фото уже готового букета. Мне он очень понравился. И доставку.
+                        Хороший курс скорочтения.
                     </p>
                 </div>
             </div>
             <div class="reviews">
                 <div class="reviews-avatar">
-                    <img src="https://e7.pngegg.com/pngimages/563/653/png-clipart-student-education-licentiate-faculdade-cathedral-graduate-university-student-education-licentiate.png">
+                    <img src="Picture/icon13.png">
                 </div>
                 <div class="reviews-text">
                     <p class="reviews-name">Александр</p>
                     <p class="reviews-role"><span style="color:#FFD700">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
                     <p>
-                        Спасибо за цветы,очень понравился букет.
+                        Отличный курс скорочтения.
                     </p>
                 </div>
             </div>
             <div class="reviews">
                 <div class="reviews-avatar">
-                    <img src="https://e7.pngegg.com/pngimages/563/653/png-clipart-student-education-licentiate-faculdade-cathedral-graduate-university-student-education-licentiate.png">
+                    <img src="Picture/icon13.png">
                 </div>
                 <div class="reviews-text">
                     <p class="reviews-name">Мария</p>
                     <p class="reviews-role"><span style="color:#FFD700">&#9733;&#9733;&#9733;&#9733;&#9733;</span></p>
                     <p>
-                        Спасибо большое, за доставку в срок. Заказывала букет из другого города, в наличии не оказалось нужного, девочки предложили свой вариант и не прогадала!!! буду пользоваться вашим сайтом и дальше.
+                        Дешевый курс скорочтения.
                     </p>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
-    <div class=price-container id="price-container">
+    <?php
+    if ($_SESSION['login_sess']!='') { ?> 
+        <div class=price-container id="price-container">
+        <div class="content">
         <div class="price-form">
             <h2 class="price-form-title">Введите данные для оплаты</h2>
-            <form action="indexphp.php" method="post">
+            <form action="" method="post">
                 <div class="row">
-                    <div class="seldiv">
+                    <div class="row-input">
+                        <input type="text" class="price-form-input" name="reviewsname" value="<?php if(isset($error)){ echo $_POST['reviewsname'];}?>" placeholder="Введите свое полное имя" required>
                     </div>
                     <div class="row-input">
-                        <input type="text" class="price-form-input" name="fio" placeholder="Введите свое полное имя" required>
+                        <input type="text" class="price-form-input" name="reviewsemail" value="<?php if(isset($error)){ echo $_POST['reviewsemail'];}?>" placeholder="Укажите адрес электронной почты" required>
                     </div>
                     <div class="row-input">
-                        <input type="text" class="price-form-input" name="email" placeholder="Укажите адрес электронной почты" required>
+                        <input type="number" class="price-form-input" name="reviewsnumber" value="<?php if(isset($error)){ echo $_POST['reviewsnumber'];}?>" min="0" max="5" placeholder="Оценка" required="">
                     </div>
                     <div class="row-input">
-                        <input type="number" class="price-form-input" name="number" placeholder="Оценка" required="">
-                    </div>
-                    <div class="row-input">
-                        <input type="text" class="price-form-input" name="reviews" placeholder="Отзыв" required="">
+                        <input type="text" class="price-form-input" name="reviewsdescription" value="<?php if(isset($error)){ echo $_POST['reviewsdescription'];}?>" placeholder="Отзыв" required="">
                     </div>
                 </div>
                 <div class="price-form-button">
@@ -94,10 +114,21 @@
             </div>
             <div class="price-form-text">
                 <p>
-                    Нажимая кнопку, принимаю условия <a href="Privacy.html">политики конфиденциальности</a>
+                    Нажимая кнопку, принимаю условия <a href="Privacy.php">политики конфиденциальности</a>
                 </p>
-            </div>
-    </div>
+        </div>
+        </div>
+        </div>
+    <?php } else { ?>
+        <div class=price-container id="price-container">
+        <div class="content">
+        <div class="price-form">
+            <h2 class="price-form-title">Для написания отзыва - авторизуйтесь</h2>
+        </div>
+        </div>
+        </div>
+    <?php } ?>
+
 </div>
 </div>
 
@@ -106,7 +137,7 @@
             <div class="footer-container">
                 <div class="footer-text">
                     <p class="footer-name">&copy;GrandRead</p>
-                    <p><a href="Privacy.html">Политика конфиденциальности</a></p>
+                    <p><a href="Privacy.php">Политика конфиденциальности</a></p>
                     </div>
             </div>
             <div class="container">
@@ -126,6 +157,6 @@
             </div>
         </div>
     </footer>
-<script src="Index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
