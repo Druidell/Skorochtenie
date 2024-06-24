@@ -1,36 +1,45 @@
+<?php require_once("config.php");?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Каталог</title>
 </head>
 <body>
     <header>
         <nav>
+        <div class="content">
             <div class="navbar-nav">
                 <div class="navbar-nav-item">
-                    <a href="Index.html" class="sitename"><strong>GrandRead</strong></a>
-                    <a href="Index.html" class="nav-link">Главная</a>
-                    <a href="Catalog.html" class="nav-link">Каталог</a>
-                    <a href="Reviews.html" class="nav-link">Отзывы</a>
-                    <a href="Contacts.html" class="nav-link">Контакты</a>
-                    <a href="#4" class="login-link">Войти</a>
+                    <a href="Index.php" class="sitename"><strong>GrandRead</strong></a>
+                    <a href="Index.php" class="nav-link">Главная</a>
+                    <a href="Catalog.php" class="nav-link">Каталог</a>
+                    <a href="Reviews.php" class="nav-link">Отзывы</a>
+                    <a href="Contacts.php" class="nav-link">Контакты</a>
+                    <?php
+                    if ($_SESSION['login_sess']!='') { ?> 
+                    <a href="account.php" class="login-link">Личный кабинет</a>
+                    <?php } else { ?>
+                      <a href="account.php" class="login-link">Войти</a>
+                    <?php } ?>
               </div>
+          </div>
           </div>
         </nav>
     </header>
 
     <h1 class="title">Каталог</h1>
     <h3 class="title">Выбери свой курс</h3>
-    <div class="catalog-container" data-id="${this.id}">
+    <div class="catalog-container">
+    <div class="content">
         <h1>МАКСИМАЛЬНЫЙ КУРС - 5000 руб.</h1>
         <div class="catalog-contain">
             <div class="catalog-text">
                 <div class="catalog-avatar">
-                    <img src="https://u2.9111s.ru/uploads/202308/27/d1f03c8cc66fdb8ca135d3d3d3a96ba3.jpg" alt="User Avatar">
+                    <img src="Picture/icon14.jpg" alt="Catalog">
                 </div>
             </div>
             <div class="catalog-text">
@@ -41,16 +50,18 @@
             </div>
         </div>
         <div class="catalog-button">
-            <a href="/index#price-container" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
+            <a href="#price-container" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
         </div>
     </div>
+    </div>
     
-    <div class="catalog-container" data-id="${this.id}">
+    <div class="catalog-container">
+    <div class="content">
         <h1>БАЗОВЫЙ КУРС - 3000 руб.</h1>
         <div class="catalog-contain">
             <div class="catalog-text">
                 <div class="catalog-avatar">
-                    <img src="https://cdn.culture.ru/images/0f45b3d0-5dba-522d-95d0-9a7f1a9addd7" alt="User Avatar">
+                    <img src="Picture/icon15.jpg" alt="Catalog">
                 </div>
             </div>
             <div class="catalog-text">
@@ -61,19 +72,19 @@
             </div>
         </div>
         <div class="catalog-button">
-            <a href="/index#price-container" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
+            <a href="#price-container" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
         </div>
+    </div>
     </div>
 
    <div class=price-container id="price-container">
+   <div class="content">
                <div class="price-form">
                    <h2 class="price-form-title">Введите данные для оплаты</h2>
                    <form action="indexphp.php" method="post">
                        <div class="row">
-                           <div class="seldiv">
-                           </div>
                            <div class="row-input">
-                            <input type="text" class="price-form-input" name="kurs" placeholder="Название курса" required="">
+                            <input type="text" class="price-form-input" name="description" placeholder="Название курса" required="">
                             </div>
                            <div class="row-input">
                                <input type="text" class="price-form-input" name="fio" placeholder="Введите свое полное имя" required>
@@ -90,23 +101,20 @@
                        </div>
                    </form>
                    <div class="price-form-text">
-                       <p>Заказать на сайте или по телефону.</p>
-                   </div>
-                   <div class="price-form-text">
                        <p>
-                           Нажимая кнопку, принимаю условия <a href="Privacy.html">политики конфиденциальности</a>
+                           Нажимая кнопку, принимаю условия <a href="Privacy.php">политики конфиденциальности</a>
                        </p>
-                   </div>
-           </div>
-   </div>
-</div>
+                    </div>
+        </div>
+    </div>
+    </div>
 
     <footer class="border-top" id="border-top">
         <div class="border-contain">
             <div class="footer-container">
                 <div class="footer-text">
                     <p class="footer-name">&copy;GrandRead</p>
-                    <p><a href="Privacy.html">Политика конфиденциальности</a></p>
+                    <p><a href="Privacy.php">Политика конфиденциальности</a></p>
                     </div>
             </div>
             <div class="container">
@@ -126,6 +134,6 @@
             </div>
         </div>
     </footer>
-<script src="Index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
