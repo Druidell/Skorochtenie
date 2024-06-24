@@ -31,3 +31,15 @@ next.onclick = function () {
 previous.onclick = function () {
     previousSlide();
 };
+
+// Отзывы 
+
+$( document ).ready(function() {
+    $('input').change(function() {
+      var n = $('input').val();
+      if (n < 0)
+        $('input').val(0);
+      if (n > 5)
+        $('input').val(5);
+    });
+});
