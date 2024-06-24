@@ -1,24 +1,32 @@
+<?php require_once("config.php");?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Главная</title>
 </head>
 <body>
     <header>
         <nav>
+        <div class="content">
             <div class="navbar-nav">
                 <div class="navbar-nav-item">
-                    <a href="Index.html" class="sitename"><strong>GrandRead</strong></a>
-                    <a href="Index.html" class="nav-link">Главная</a>
-                    <a href="Catalog.html" class="nav-link">Каталог</a>
-                    <a href="Reviews.html" class="nav-link">Отзывы</a>
-                    <a href="Contacts.html" class="nav-link">Контакты</a>
-                    <a href="#4" class="login-link">Войти</a>
+                    <a href="Index.php" class="sitename"><strong>GrandRead</strong></a>
+                    <a href="Index.php" class="nav-link">Главная</a>
+                    <a href="Catalog.php" class="nav-link">Каталог</a>
+                    <a href="Reviews.php" class="nav-link">Отзывы</a>
+                    <a href="Contacts.php" class="nav-link">Контакты</a>
+                    <?php
+                    if ($_SESSION['login_sess']!='') { ?> 
+                    <a href="account.php" class="login-link">Личный кабинет</a>
+                    <?php } else { ?>
+                      <a href="account.php" class="login-link">Войти</a>
+                    <?php } ?>
               </div>
+          </div>
           </div>
         </nav>
     </header>
@@ -46,13 +54,13 @@
     <div class="text-container">
     <div class="content">
         <div class="texter-contain">
-            <h1 class="textone"><b><em>онлайн-курс</em></b></h1>
+            <p class="textone"><b><em>онлайн-курс</em></b></p>
             <img src="http://lh3.googleusercontent.com/w6oicP3qB7KqY56yVCS7v3_1InT6k4LtitdhxSdf3mp9RqkD5nRXxPrFGZMIN40dzX0=w300" align="right">
-            <h1 class="texttwo"><b style="color:#FF8C00">Быстрое чтение</b><b> и<br>усвоение информации</b></h1>
+            <p class="texttwo"><b style="color:#FF8C00">Быстрое чтение</b><b> и<br>усвоение информации</b></h1>
             <p class="textthree"><b>Вы существенно увеличите скорость чтения, повысите качество работы с<br> информацией и закрепите умение запоминать изучаемый материал.</b></p>
-            <a class="buttonone" href="#price-container"><span style="color:#FFFFFF">Старт потока <b style="color:#FF8C00">30 марта</b>, купите заранее</span></a>
+            <a class="buttonone" href="Catalog.php"><span style="color:#FFFFFF">Старт потока <b style="color:#FF8C00">30 марта</b>, купите заранее</span></a>
             <div class="buttontwo-wrap">
-                <a href="#price-container" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Записаться на курс</span></a>
+                <a href="Catalog.php" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Записаться на курс</span></a>
             </div>
         </div>
     </div>
@@ -97,7 +105,7 @@
                         </div>
                 </div>
                 <div class="section-button">
-                    <a href="Catalog.html" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
+                    <a href="Catalog.php" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
                 </div>
         </div>
     </div>
@@ -156,7 +164,7 @@
         <p>После окончания курса вы получаете Персональный сертификат</p>
         <img src="Picture/icon8.png">
         <div class="sertif-button">
-            <a href="#price-container" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
+            <a href="Catalog.php" class="buttontwo"><span class="button__icon"></span> <span class="buttontext">Хочу на курс!</span></a>
         </div>
     </div>
     </div>
@@ -166,7 +174,7 @@
             <div class="footer-container">
                 <div class="footer-text">
                     <p class="footer-name">&copy;GrandRead</p>
-                    <p><a href="Privacy.html">Политика конфиденциальности</a></p>
+                    <p><a href="Privacy.php">Политика конфиденциальности</a></p>
                     </div>
             </div>
             <div class="container">
@@ -186,6 +194,6 @@
             </div>
         </div>
     </footer>
-<script src="Index.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
